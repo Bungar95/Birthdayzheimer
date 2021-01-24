@@ -25,8 +25,7 @@ abstract class BirthdayDatabase: RoomDatabase() {
             val dao = database.get().birthdayDao()
 
             applicationScope.launch {
-                dao.insert(Birthday("Borna Ungar", 5, 1, 1995))
-                dao.insert(Birthday("Mirjana Ungar", 24, 1, 1964))
+                dao.insert(Birthday("Testy Test", 20, 1, 1960))
             }
         }
     }
