@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_birthdays.*
-import kotlinx.android.synthetic.main.fragment_birthdays.view.*
-import kotlinx.coroutines.test.withTestContext
 import ungar.mvvm.datepicker.R
 import ungar.mvvm.datepicker.databinding.FragmentBirthdaysBinding
 import ungar.mvvm.datepicker.model.Birthday
@@ -47,16 +45,20 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays), BirthdaysAdapte
                 btn_date.text.toString().split("/")[1].toInt(),
                 btn_date.text.toString().split("/")[2].toInt())
             )
+            //clear user text after insert
+            et_name.text.clear()
         }
 
         btn_date.setOnClickListener {
             showDatePickerDialog(btn_date)
         }
+
     }
 
     override fun onItemClick(birthday: Birthday) {
-        Snackbar.make(requireView(), "${birthday.name}", Snackbar.LENGTH_SHORT).show()
         //This is where "x days until birthday" will go.
+        Snackbar.make(requireView(), viewModel.birthdayCountdown(birthday), Snackbar.LENGTH_SHORT).show()
+
     }
 
     private fun showDatePickerDialog(btn: Button){

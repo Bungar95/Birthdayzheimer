@@ -1,5 +1,6 @@
 package ungar.mvvm.datepicker.ui.datepicker
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
@@ -23,9 +24,10 @@ class DatePickerDialogFragment(btn: Button) : DialogFragment(), DatePickerDialog
         return DatePickerDialog(requireContext(), this, year, month, day)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
         // Do something with the date chosen by the user
-        button.setText("$day/${month+1}/$year")
+        button.text = "$day/${month+1}/$year"
     }
 
 }

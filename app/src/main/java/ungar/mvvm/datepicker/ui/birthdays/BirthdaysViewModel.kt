@@ -1,19 +1,13 @@
 package ungar.mvvm.datepicker.ui.birthdays
 
-import android.view.View
-import android.widget.Button
-import androidx.fragment.app.FragmentManager
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import ungar.mvvm.datepicker.model.Birthday
 import ungar.mvvm.datepicker.model.BirthdayDao
-import ungar.mvvm.datepicker.ui.datepicker.DatePickerDialogFragment
+import java.util.*
 
 class BirthdaysViewModel @ViewModelInject constructor(
     private val birthdayDao: BirthdayDao
@@ -23,6 +17,25 @@ class BirthdaysViewModel @ViewModelInject constructor(
 
     fun addBirthday(birthday: Birthday) = viewModelScope.launch {
         birthdayDao.insert(birthday)
+    }
+    
+    fun birthdayCountdown(birthday: Birthday) : String{
+        val currentMonth = Calendar.getInstance().get(Calendar.MONTH)+1 // calendar.month starts with january=0
+        val currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        return when{
+            birthday.month == currentMonth -> {
+                when{
+                    birthday.day == currentDay -> "IT'S THEIR BIRTHDAY!"
+                    birthday.day < currentDay -> "${currentDay-birthday.day} since their birthday!"
+                    else -> "${birthday.day-currentDay} days to go!"
+                }
+            }
+            birthday.month < currentMonth -> {
+                "${currentMonth-birthday.month} months to go."
+            }
+            else -> "${birthday.month-currentMonth} months to go."
+        }
+
     }
 
 }
