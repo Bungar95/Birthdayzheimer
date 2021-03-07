@@ -1,4 +1,4 @@
-package ungar.mvvm.datepicker.model
+package ungar.mvvm.birthdayapp.model
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
@@ -8,6 +8,9 @@ interface BirthdayDao {
 
     @Query("SELECT * FROM birthday_table")
     fun getBirthdays() : Flow<List<Birthday>>
+
+    @Query("SELECT COUNT(id) FROM birthday_table")
+    fun getBirthdaysCount(): Int
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(birthday: Birthday)

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="accents">
+        <item>@string/brown</item>
+        <item>@string/blue</item>
+        <item>@string/green</item>
+        <item>@string/orange</item>
+        <item>@string/yellow</item>
+        <item>@string/teal</item>
+        <item>@string/violet</item>
+        <item>@string/pink</item>
+        <item>@string/light_blue</item>
+        <item>@string/red</item>
+        <item>@string/lime</item>
+        <item>@string/crimson</item>
+    </string-array>
+
+</resources>

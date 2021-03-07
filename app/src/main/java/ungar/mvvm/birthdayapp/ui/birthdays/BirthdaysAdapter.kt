@@ -1,12 +1,14 @@
-package ungar.mvvm.datepicker.ui.birthdays
+package ungar.mvvm.birthdayapp.ui.birthdays
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ungar.mvvm.datepicker.databinding.ItemBirthdayBinding
-import ungar.mvvm.datepicker.model.Birthday
+import kotlinx.android.synthetic.main.item_birthday.*
+import ungar.mvvm.birthdayapp.databinding.ItemBirthdayBinding
+import ungar.mvvm.birthdayapp.model.Birthday
+import java.util.*
 
 class BirthdaysAdapter(private val listener: OnItemClickListener) : ListAdapter<Birthday, BirthdaysAdapter.BirthdaysViewHolder>(DiffCallback()) {
 
@@ -37,6 +39,8 @@ class BirthdaysAdapter(private val listener: OnItemClickListener) : ListAdapter<
 
         fun bind(birthday: Birthday) {
             binding.apply {
+                imgProfile.setImageResource(birthday.profilePicture)
+                tvMonth.text = setMonth(birthday.month)
                 tvName.text = birthday.name
                 tvDate.text = "${birthday.day} ${birthday.month} ${birthday.year}"
             }
@@ -53,5 +57,23 @@ class BirthdaysAdapter(private val listener: OnItemClickListener) : ListAdapter<
 
         override fun areContentsTheSame(oldItem: Birthday, newItem: Birthday) =
             oldItem == newItem
+    }
+
+    private fun setMonth(month: Int): String {
+        return when(month){
+            1 -> "Jan"
+            2 -> "Feb"
+            3 -> "Mar"
+            4 -> "Apr"
+            5 -> "May"
+            6 -> "Jun"
+            7 -> "Jul"
+            8 -> "Aug"
+            9 -> "Sep"
+            10 -> "Oct"
+            11 -> "Nov"
+            12 -> "Dec"
+            else -> "Err"
+        }
     }
 }

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ungar.mvvm.datepicker">
+    package="ungar.mvvm.birthdayapp">
 
     <application
-        android:name=".BirthdayApplication"
+        android:name="ungar.mvvm.birthdayapp.BirthdayApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DatePicker">
-        <activity android:name=".ui.MainActivity">
+        <activity
+            android:name="ungar.mvvm.birthdayapp.ui.MainActivity"
+            android:configChanges="locale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

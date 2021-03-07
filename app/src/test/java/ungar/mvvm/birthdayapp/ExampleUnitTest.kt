@@ -1,4 +1,4 @@
-package ungar.mvvm.datepicker
+package ungar.mvvm.birthdayapp
 
 import org.junit.Test
 

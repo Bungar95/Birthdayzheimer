@@ -1,72 +1,132 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    app:layoutDescription="@xml/fragment_birthdays_scene"
     tools:context=".ui.birthdays.BirthdaysFragment">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/titleBirthdays"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/acme"
-        android:text="BIRTHDAYS"
+        android:paddingStart="8dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/fragment_birthdays"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/optionsMiniFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/open_options_description"
+        app:fabSize="mini"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/titleBirthdays"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toEndOf="@+id/titleBirthdays"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_down_12" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/optionsCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/recyclerViewBirthdays"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBirthdays">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/birthdaySearchLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_hint"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxCornerRadiusBottomEnd="@dimen/rounded_corners"
+                app:boxCornerRadiusBottomStart="@dimen/rounded_corners"
+                app:boxCornerRadiusTopEnd="@dimen/rounded_corners"
+                app:boxCornerRadiusTopStart="@dimen/rounded_corners"
+                app:boxStrokeWidth="2dp"
+                app:endIconContentDescription="Cancel"
+                app:endIconMode="clear_text"
+                app:endIconTint="?colorAccent"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconContentDescription="Search birthdays"
+                app:startIconDrawable="@drawable/ic_baseline_person_search_24"
+                app:startIconTint="?colorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/birthdaySearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/search_hint"
+                    android:inputType="textPersonName"
+                    android:maxLength="25"
+                    android:padding="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/noEvents"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="3"
+        android:paddingHorizontal="48dp"
+        android:paddingVertical="48dp"
+        android:scrollbarSize="0dp"
+        android:text="@string/no_birthdays_recycler"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="#C5959595"
+        app:drawableTint="#C5959595"
+        app:drawableTopCompat="@drawable/ic_nothing_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionsCard" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewBirthdays"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#D3D3D3"
-        android:orientation="horizontal"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionsCard" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/et_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Add name"
-                android:inputType="textPersonName" />
-
-            <Button
-                android:id="@+id/btn_date"
-                android:text="Select Date (dd/mm/yyyy)"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Pick date" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_add"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/btn_add" />
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

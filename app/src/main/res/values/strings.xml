@@ -1,4 +1,49 @@
 <resources>
-    <string name="app_name">DatePicker</string>
+    <string name="app_name">Birthdays Reminder</string>
     <string name="btn_add">Add</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_edit_description">Edit birthday</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_delete_description">Delete birthday</string>
+
+    <!-- Fragments titles -->
+    <string name="fragment_birthdays">BIRTHDAYS</string>
+    <string name="fragment_settings">SETTINGS</string>
+
+    <!-- Fragment BIRTHDAYS -->
+    <string name="no_birthdays_recycler">No birthdays! Add one using the button below!</string>
+    <string name="open_options_description">Open options</string>
+    <string name="search_hint">Search birthdays</string>
+
+    <!-- Fragment OPTIONS -->
+    <string name="options_language">App language</string>
+    <string name="language_en">English</string>
+    <string name="language_hr">Croatian (hrvatski)</string>
+
+
+    <!-- Dialog add birthday -->
+    <string name="add_name">Insert name</string>
+    <string name="add_surname">Insert surname</string>
+    <string name="select_date">Select date</string>
+    <string name="add_birthday">Add birthday</string>
+    <string name="cancel_birthday">Cancel</string>
+    <string name="new_birthday">New birthday date</string>
+    <string name="new_birthday_description">Enter a person and their birthday date, the app will help you remember their birthday! Well, as long as you remember to use the app :)</string>
+
+    <!-- Dialog edit birthday -->
+    <string name="edit_birthday">Edit birthday</string>
+    <string name="edit_name">Edit name</string>
+    <string name="edit_date">Edit date</string>
+    <string name="edit_birthday_description">Got someone\'s birthday wrong? :/ Edit the existing birthday.</string>
+
+    <!-- Selected birthday -->
+    <string name="_100">100</string>
+    <string name="selected_name">Name</string>
+    <string name="selected_date">Date</string>
+    <string name="countdown_to_birthday">Countdown</string>
+
+    <!-- Birthday item -->
+    <string name="_years">Years</string>
+    <string name="_name">Name</string>
+    <string name="_date">Date</string>
 </resources>
