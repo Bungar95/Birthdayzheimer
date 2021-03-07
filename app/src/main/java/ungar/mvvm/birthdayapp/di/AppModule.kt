@@ -1,4 +1,4 @@
-package ungar.mvvm.datepicker.di
+package ungar.mvvm.birthdayapp.di
 
 import android.app.Application
 import androidx.room.Room
@@ -8,7 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
-import ungar.mvvm.datepicker.model.BirthdayDatabase
+import ungar.mvvm.birthdayapp.model.BirthdayDatabase
 import javax.inject.Qualifier
 import javax.inject.Singleton
 

@@ -1,4 +1,4 @@
-package ungar.mvvm.datepicker
+package ungar.mvvm.birthdayapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

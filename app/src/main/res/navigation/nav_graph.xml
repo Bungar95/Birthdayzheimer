@@ -7,7 +7,12 @@
 
     <fragment
         android:id="@+id/birthdaysFragment"
-        android:name="ungar.mvvm.datepicker.ui.birthdays.BirthdaysFragment"
+        android:name="ungar.mvvm.birthdayapp.ui.birthdays.BirthdaysFragment"
         android:label="Birthdays"
         tools:layout="@layout/fragment_birthdays" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ungar.mvvm.birthdayapp.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

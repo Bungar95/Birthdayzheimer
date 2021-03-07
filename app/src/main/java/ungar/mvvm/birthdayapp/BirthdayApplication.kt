@@ -1,4 +1,4 @@
-package ungar.mvvm.datepicker
+package ungar.mvvm.birthdayapp
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

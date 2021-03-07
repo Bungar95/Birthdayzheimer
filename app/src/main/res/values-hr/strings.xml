@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Podsjetnik za rođendane</string>
+    <string name="btn_add">Dodaj</string>
+    <string name="btn_edit">Uredi</string>
+    <string name="btn_edit_description">Uredi rođendan</string>
+    <string name="btn_delete">Obriši</string>
+    <string name="btn_delete_description">Obriši rođendan</string>
+
+    <!-- Fragments titles -->
+    <string name="fragment_birthdays">ROĐENDANI</string>
+    <string name="fragment_settings">POSTAVKE</string>
+
+    <!-- Fragment BIRTHDAYS -->
+    <string name="no_birthdays_recycler">Nema rođendana! Dodajte jedan pomoću gumba u nastavku!</string>
+    <string name="open_options_description">Otvori dodatne opcije</string>
+    <string name="search_hint">Pretraži rođendane</string>
+
+    <!-- Fragment OPTIONS -->
+    <string name="options_language">Jezik aplikacije</string>
+    <string name="language_en">Engleski (English)</string>
+    <string name="language_hr">Hrvatski</string>
+
+    <!-- Dialog add birthday -->
+    <string name="add_name">Unesi ime</string>
+    <string name="add_surname">Unesi prezime</string>
+    <string name="select_date">Odaberi datum</string>
+    <string name="add_birthday">Dodaj rođendan</string>
+    <string name="cancel_birthday">Zatvori</string>
+    <string name="new_birthday">Novi datum rođendana</string>
+    <string name="new_birthday_description">Unesite osobu i datum njihovog rođendana, a aplikacija će vam pomoći da se sjetite rođendana! Pa, sve dok se sjetite koristiti aplikaciju :)</string>
+
+    <!-- Dialog edit birthday -->
+    <string name="edit_birthday">Uredi rođendan</string>
+    <string name="edit_name">Uredi ime</string>
+    <string name="edit_date">Uredi datum</string>
+    <string name="edit_birthday_description">Krivo unijeli nečiji rođendan? :/ Uredite postojeći rođendan.</string>
+
+    <!-- Selected birthday -->
+    <string name="_100">100</string>
+    <string name="selected_name">Ime</string>
+    <string name="selected_date">Datum</string>
+    <string name="countdown_to_birthday">Odbrojavanje</string>
+
+    <!-- Birthday item -->
+    <string name="_years">Godine</string>
+    <string name="_name">Ime</string>
+    <string name="_date">Datum</string>
+</resources>

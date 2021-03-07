@@ -1,11 +1,11 @@
-package ungar.mvvm.datepicker.model
+package ungar.mvvm.birthdayapp.model
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import ungar.mvvm.datepicker.di.ApplicationScope
+import ungar.mvvm.birthdayapp.di.ApplicationScope
 import javax.inject.Inject
 import javax.inject.Provider
 
