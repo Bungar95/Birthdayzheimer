@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -17,9 +18,11 @@ import com.afollestad.materialdialogs.datetime.datePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_add_birthday.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.model.Birthday
 import ungar.mvvm.birthdayapp.ui.birthdays.BirthdaysViewModel
+import ungar.mvvm.birthdayapp.ui.settings.SettingsViewModel
 import java.time.LocalDate
 import java.util.*
 
@@ -27,6 +30,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private val viewModel: BirthdaysViewModel by viewModels()
+    private val settingsViewModel: SettingsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         var nameValue = "error"
         var dateValue: LocalDate = LocalDate.of(1970, 1, 1)
+        var genderValue: Int = 0
         var dateDialog: MaterialDialog? = null
         val endDate = Calendar.getInstance()
         var currentDate = Calendar.getInstance()
@@ -55,8 +60,9 @@ class MainActivity : AppCompatActivity() {
 
                 positiveButton(R.string.add_birthday) {
                     nameValue = birthdayName.text.toString()
+                    genderValue = radioGroup_gender.checkedRadioButtonId
                     val newBirthday = Birthday(
-                        nameValue, dateValue.dayOfMonth, dateValue.monthValue, dateValue.year
+                        nameValue, dateValue.dayOfMonth, dateValue.monthValue, dateValue.year, genderValue, viewModel.determineProfilePicture(genderValue)
                     )
                     viewModel.createBirthday(newBirthday)
                     dismiss()
@@ -86,9 +92,7 @@ class MainActivity : AppCompatActivity() {
                         Handler(Looper.getMainLooper()).postDelayed({ dateDialog = null }, 750)
                     }
                 }
-
             }
         }
     }
-
 }

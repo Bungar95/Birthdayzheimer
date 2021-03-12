@@ -17,8 +17,10 @@
 
     <!-- Fragment OPTIONS -->
     <string name="options_language">Jezik aplikacije</string>
-    <string name="language_en">Engleski (English)</string>
-    <string name="language_hr">Hrvatski</string>
+    <string name="current_language">Hrvatski</string>
+    <string name="language_explanation">Aplikacija koristi jezične postavke vašeg telefona da bi odredila svoj jezik. Trenutno jedini podržani
+                                        jezici su engleski i hrvatski.</string>
+    <string name="options_nightMode">Noćni način rada</string>
 
     <!-- Dialog add birthday -->
     <string name="add_name">Unesi ime</string>
@@ -45,4 +47,38 @@
     <string name="_years">Godine</string>
     <string name="_name">Ime</string>
     <string name="_date">Datum</string>
+
+    <!-- Months -->
+    <string name="january">Siječanj</string>
+    <string name="february">Veljača</string>
+    <string name="march">Ožujak</string>
+    <string name="april">Travanj</string>
+    <string name="may">Svibanj</string>
+    <string name="june">Lipanj</string>
+    <string name="july">Srpanj</string>
+    <string name="august">Kolovoz</string>
+    <string name="september">Rujan</string>
+    <string name="october">Listopad</string>
+    <string name="november">Studeni</string>
+    <string name="december">Prosinac</string>
+
+    <!-- Months (short) -->
+    <string name="january_short">Sij</string>
+    <string name="february_short">Vel</string>
+    <string name="march_short">Ožu</string>
+    <string name="april_short">Tra</string>
+    <string name="may_short">Svi</string>
+    <string name="june_short">Lip</string>
+    <string name="july_short">Srp</string>
+    <string name="august_short">Kol</string>
+    <string name="september_short">Ruj</string>
+    <string name="october_short">Lis</string>
+    <string name="november_short">Stu</string>
+    <string name="december_short">Pro</string>
+
+    <!-- Sex -->
+    <string name="gender">Spol</string>
+    <string name="gender_male">Muško</string>
+    <string name="gender_female">Žensko</string>
+    <string name="gender_neither">Nijedno/Nebitno</string>
 </resources>

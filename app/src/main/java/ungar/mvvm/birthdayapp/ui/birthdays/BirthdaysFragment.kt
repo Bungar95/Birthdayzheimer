@@ -39,7 +39,7 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays), BirthdaysAdapte
 
         val binding = FragmentBirthdaysBinding.bind(view)
 
-        val birthdayAdapter = BirthdaysAdapter(this)
+        val birthdayAdapter = BirthdaysAdapter(this, this.requireContext())
 
         binding.apply {
             recyclerViewBirthdays.apply{
@@ -136,7 +136,9 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays), BirthdaysAdapte
                         name = nameValue,
                         day = dateValue.dayOfMonth,
                         month = dateValue.monthValue,
-                        year = dateValue.year
+                        year = dateValue.year,
+                        gender = birthday.gender,
+                        profilePicture = viewModel.determineProfilePicture(birthday.gender)
                     )
                     viewModel.updateBirthday(editedBirthday)
                     dismiss()
