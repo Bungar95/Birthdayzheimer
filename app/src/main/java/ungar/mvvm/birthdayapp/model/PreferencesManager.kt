@@ -15,9 +15,9 @@ import javax.inject.Singleton
 
 private const val TAG = "PreferencesManager"
 
-enum class SortOrder { BY_NAME, BY_DATE}
+enum class SortOrder {BY_NAME, BY_DATE}
 
-data class OptionsPreferences(val openOptionsCard: Boolean)
+data class OptionsPreferences(val openOptionsCard: Boolean, val theme: Boolean)
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -37,8 +37,8 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
         }
         .map { preferences ->
             val optionsCardOpen = preferences[PreferenceKeys.OPTIONS_CARD_OPEN] ?: false
-            val language = preferences[PreferenceKeys.LANGUAGE] ?: "en"
-            OptionsPreferences(optionsCardOpen)
+            val theme = preferences[PreferenceKeys.THEME] ?: false
+            OptionsPreferences(optionsCardOpen, theme)
         }
 
     suspend fun updateOptionsCardOpen(optionsCardOpen: Boolean){
@@ -47,14 +47,14 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
         }
     }
 
-    suspend fun updateLanguage(language: String){
+    suspend fun updateThemeNightMode(theme: Boolean){
         dataStore.edit { preferences ->
-            preferences[PreferenceKeys.LANGUAGE] = language
+            preferences[PreferenceKeys.THEME] = theme
         }
     }
 
     private object PreferenceKeys {
         val OPTIONS_CARD_OPEN = booleanPreferencesKey("options_card_open")
-        val LANGUAGE = stringPreferencesKey("app_language")
+        val THEME = booleanPreferencesKey("app_theme")
     }
 }

@@ -9,7 +9,7 @@ import ungar.mvvm.birthdayapp.di.ApplicationScope
 import javax.inject.Inject
 import javax.inject.Provider
 
-@Database(entities = [Birthday::class], version = 1)
+@Database(entities = [Birthday::class], version = 2)
 abstract class BirthdayDatabase: RoomDatabase() {
 
     abstract fun birthdayDao(): BirthdayDao
@@ -25,7 +25,7 @@ abstract class BirthdayDatabase: RoomDatabase() {
             val dao = database.get().birthdayDao()
 
             applicationScope.launch {
-                dao.insert(Birthday("Testy Test", 20, 1, 1960))
+                //dao.insert(Birthday("Testy Test", 20, 1, 1960))
             }
         }
     }

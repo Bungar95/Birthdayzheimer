@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.model.Birthday
 import ungar.mvvm.birthdayapp.model.BirthdayDao
 import ungar.mvvm.birthdayapp.model.PreferencesManager
@@ -13,10 +14,11 @@ import java.time.LocalDate
 import java.util.*
 
 @HiltViewModel
-class BirthdaysViewModel constructor(
+//@Inject that replaced @ViewModelInject throws errors?
+class BirthdaysViewModel @ViewModelInject constructor(
     private val birthdayDao: BirthdayDao,
     private val preferencesManager: PreferencesManager
-) : ViewModel() {
+): ViewModel(){
 
     val preferencesFlow = preferencesManager.preferencesFlow
 
@@ -61,6 +63,14 @@ class BirthdaysViewModel constructor(
             else -> "${birthday.month-currentMonth} months to go"
         }
 
+    }
+
+    fun determineProfilePicture(genderValue: Int) :Int {
+        return when(genderValue) {
+            0 -> R.drawable.m1
+            1 -> R.drawable.w1
+            else -> R.drawable.n1
+        }
     }
 
     fun setYearEditText(birthday: Birthday, editable: TextView){
