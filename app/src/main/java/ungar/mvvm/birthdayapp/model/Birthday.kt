@@ -14,6 +14,6 @@ data class Birthday(
     val month: Int = 0,
     val year: Int = 0,
     val gender: Int = 0,
-    val profilePicture: Int = R.drawable.m1,
+    val profilePicture: Int,
     @PrimaryKey(autoGenerate = true) val id: Int = 0
     ): Parcelable

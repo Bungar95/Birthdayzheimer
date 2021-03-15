@@ -42,16 +42,6 @@
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_add_birthday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="30dp"
-            android:elevation="0.1dp"
-            android:src="@drawable/ic_baseline_cake_24" />
-
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

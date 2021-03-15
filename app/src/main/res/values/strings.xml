@@ -9,11 +9,16 @@
     <!-- Fragments titles -->
     <string name="fragment_birthdays">BIRTHDAYS</string>
     <string name="fragment_settings">SETTINGS</string>
+    <string name="fragment_notes">NOTES</string>
 
     <!-- Fragment BIRTHDAYS -->
     <string name="no_birthdays_recycler">No birthdays! Add one using the button below!</string>
+    <string name="no_search_result">No birthdays found</string>
     <string name="open_options_description">Open options</string>
     <string name="search_hint">Search birthdays</string>
+
+    <!-- Fragment NOTES -->
+    <string name="no_notes_recycler">No notes! If you got an idea for someone\'s birthday and you don\'t want to forget it, add notes using the button below!</string>
 
     <!-- Fragment OPTIONS -->
     <string name="options_language">App language</string>
@@ -36,6 +41,17 @@
     <string name="edit_name">Edit name</string>
     <string name="edit_date">Edit date</string>
     <string name="edit_birthday_description">Got someone\'s birthday wrong? :/ Edit the existing birthday.</string>
+
+    <!-- Dialog add note -->
+    <string name="add_note">Insert note</string>
+    <string name="add_note_content">Write a note</string>
+    <string name="new_note">New note</string>
+    <string name="new_note_description">Thought about something for someone\'s birthday? Write it up as a note so you don\'t forget it.</string>
+    <string name="important">Important</string>
+
+    <!-- Dialog edit note -->
+    <string name="edit_note">Edit note</string>
+    <string name="edit_note_description">Change of plans? Edit the existing note.</string>
 
     <!-- Selected birthday -->
     <string name="_100">100</string>
@@ -76,9 +92,12 @@
     <string name="november_short">Nov</string>
     <string name="december_short">Dec</string>
 
-    <!-- Sex -->
+    <!-- Gender -->
     <string name="gender">Gender</string>
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
     <string name="gender_neither">Neither/Irrelevant</string>
+
+    <!-- Misc. -->
+    <string name="details">Details</string>
 </resources>

@@ -55,6 +55,6 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
 
     private object PreferenceKeys {
         val OPTIONS_CARD_OPEN = booleanPreferencesKey("options_card_open")
-        val THEME = booleanPreferencesKey("app_theme")
+        val THEME = booleanPreferencesKey("app_nightMode")
     }
 }
