@@ -26,6 +26,8 @@
     <string name="language_explanation">The application uses your phone\'s language settings to determine it\'s language. Currently, the only supported
                                         languages are English (default) and Croatian.</string>
     <string name="options_nightMode">Night Mode</string>
+    <string name="nightMode_explanation">It is possible that when changing the night mode, there is an uncontrolled change of the night and day theme for a second, but it should work from a few attempts. I will try to find the reason and fix it.</string>
+
 
     <!-- Dialog add birthday -->
     <string name="add_name">Insert name</string>

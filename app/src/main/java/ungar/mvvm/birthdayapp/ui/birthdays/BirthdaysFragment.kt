@@ -90,6 +90,7 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays), BirthdaysAdapte
 
         fab_add_birthday.setOnClickListener {
 
+
             var nameValue = "error"
             var dateValue: LocalDate = LocalDate.of(1970, 1, 1)
             var genderValue = 0

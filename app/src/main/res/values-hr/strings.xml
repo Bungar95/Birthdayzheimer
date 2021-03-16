@@ -26,6 +26,7 @@
     <string name="language_explanation">Aplikacija koristi jezične postavke vašeg telefona da bi odredila svoj jezik. Trenutno jedini podržani
                                         jezici su engleski i hrvatski.</string>
     <string name="options_nightMode">Noćni način rada</string>
+    <string name="nightMode_explanation">Moguće je da prilikom mijenjanja noćnog načina rada dođe do nekontroliranog mijenjanja noćne i dnevne teme na sekundu, ali trebalo bi raditi iz nekoliko pokušaja. Pokušat ću pronaći razlog i popraviti to. </string>
 
     <!-- Dialog add birthday -->
     <string name="add_name">Unesi ime</string>
