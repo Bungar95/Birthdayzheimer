@@ -9,11 +9,16 @@
     <!-- Fragments titles -->
     <string name="fragment_birthdays">ROĐENDANI</string>
     <string name="fragment_settings">POSTAVKE</string>
+    <string name="fragment_notes">BILJEŠKE</string>
 
     <!-- Fragment BIRTHDAYS -->
     <string name="no_birthdays_recycler">Nema rođendana! Dodajte jedan pomoću gumba u nastavku!</string>
+    <string name="no_search_result">Nijedan rođendan nije pronađen</string>
     <string name="open_options_description">Otvori dodatne opcije</string>
     <string name="search_hint">Pretraži rođendane</string>
+
+    <!-- Fragment NOTES -->
+    <string name="no_notes_recycler">Nema bilješki! Ako imate ideju za nečiji rođendan i ne želite ju zaboraviti, dodajte bilješke pomoću gumba u nastavku!</string>
 
     <!-- Fragment OPTIONS -->
     <string name="options_language">Jezik aplikacije</string>
@@ -36,6 +41,17 @@
     <string name="edit_name">Uredi ime</string>
     <string name="edit_date">Uredi datum</string>
     <string name="edit_birthday_description">Krivo unijeli nečiji rođendan? :/ Uredite postojeći rođendan.</string>
+
+    <!-- Dialog add note -->
+    <string name="add_note">Unesi bilješku</string>
+    <string name="add_note_content">Napišite bilješku</string>
+    <string name="new_note">Nova bilješka</string>
+    <string name="new_note_description">Dosjetili ste se nečega za nečiji rođendan? Zapišite bilješku kako ne biste zaboravili.</string>
+    <string name="important">Važno</string>
+
+    <!-- Dialog edit note -->
+    <string name="edit_note">Uredi bilješku</string>
+    <string name="edit_note_description">Promjena planova? Uredite postojeću bilješku.</string>
 
     <!-- Selected birthday -->
     <string name="_100">100</string>
@@ -76,9 +92,12 @@
     <string name="november_short">Stu</string>
     <string name="december_short">Pro</string>
 
-    <!-- Sex -->
+    <!-- Gender -->
     <string name="gender">Spol</string>
     <string name="gender_male">Muško</string>
     <string name="gender_female">Žensko</string>
     <string name="gender_neither">Nijedno/Nebitno</string>
+
+    <!-- Misc. -->
+    <string name="details">Detalji</string>
 </resources>

@@ -1,10 +1,13 @@
 package ungar.mvvm.birthdayapp.ui.birthdays
 
 import android.widget.TextView
+import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.model.Birthday
@@ -20,9 +23,19 @@ class BirthdaysViewModel @ViewModelInject constructor(
     private val preferencesManager: PreferencesManager
 ): ViewModel(){
 
+    //val birthdays = birthdayDao.getBirthdays().asLiveData()
+    val birthdays: LiveData<List<Birthday>>
+    val searchStringLiveData = MutableLiveData<String>()
+
+    init {
+        searchStringLiveData.value = ""
+        birthdays = Transformations.switchMap(searchStringLiveData){ string ->
+            birthdayDao.getOrderedBirthdaysByName(string).asLiveData()
+        }
+    }
+
     val preferencesFlow = preferencesManager.preferencesFlow
 
-    val birthdays = birthdayDao.getBirthdays().asLiveData()
 
     fun onOptionsCardChanged(optionsCardOpen: Boolean) = viewModelScope.launch {
         preferencesManager.updateOptionsCardOpen(optionsCardOpen)
@@ -67,8 +80,8 @@ class BirthdaysViewModel @ViewModelInject constructor(
 
     fun determineProfilePicture(genderValue: Int) :Int {
         return when(genderValue) {
-            0 -> R.drawable.m1
-            1 -> R.drawable.w1
+            R.id.radioBtn_male -> R.drawable.m1
+            R.id.radioBtn_female -> R.drawable.w1
             else -> R.drawable.n1
         }
     }
@@ -96,5 +109,7 @@ class BirthdaysViewModel @ViewModelInject constructor(
         return calendar
     }
 
-
+    fun searchNameChanged(name: String) {
+        searchStringLiveData.value = name
+    }
 }

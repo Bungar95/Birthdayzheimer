@@ -6,11 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_birthday.*
 import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.databinding.ItemBirthdayBinding
 import ungar.mvvm.birthdayapp.model.Birthday
-import java.util.*
 
 class BirthdaysAdapter(private val listener: OnItemClickListener, private val context: Context) : ListAdapter<Birthday, BirthdaysAdapter.BirthdaysViewHolder>(DiffCallback()) {
 
