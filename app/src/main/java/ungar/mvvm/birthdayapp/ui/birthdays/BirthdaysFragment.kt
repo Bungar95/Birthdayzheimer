@@ -21,8 +21,11 @@ import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.customview.getCustomView
 import com.afollestad.materialdialogs.datetime.datePicker
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_add_birthday.*
+import kotlinx.android.synthetic.main.dialog_add_note.*
 import kotlinx.android.synthetic.main.dialog_details_birthday.*
 import kotlinx.android.synthetic.main.dialog_details_birthday.view.*
 import kotlinx.android.synthetic.main.fragment_birthdays.*
@@ -108,6 +111,10 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays), BirthdaysAdapte
                 //getActionButton(WhichButton.POSITIVE).isEnabled = false
 
                 positiveButton(R.string.add_birthday) {
+                    if(birthdayName.text.isNullOrBlank()){
+                        Snackbar.make(requireView(), getString(R.string.no_name), Snackbar.LENGTH_SHORT ).show()
+                        return@positiveButton
+                    }
                     nameValue = birthdayName.text.toString()
                     genderValue = radioGroup_gender.checkedRadioButtonId
                     val newBirthday = Birthday(
@@ -200,6 +207,10 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays), BirthdaysAdapte
                 birthdayName.setText(nameValue)
                 radioGroup_gender.check(genderValue) // serves to have the previously checked button checked again.
                 positiveButton(R.string.edit_birthday) {
+                    if(birthdayName.text.isNullOrBlank()){
+                        Snackbar.make(requireView(), getString(R.string.no_name), Snackbar.LENGTH_SHORT ).show()
+                        return@positiveButton
+                    }
                     nameValue = birthdayName.text.toString()
                     genderValue = radioGroup_gender.checkedRadioButtonId// if user changed the checked button
                     val editedBirthday = Birthday(
@@ -211,7 +222,7 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays), BirthdaysAdapte
                         gender = genderValue,
                         profilePicture = viewModel.determineProfilePicture(genderValue)
                     )
-                    Log.d("Gender --->", genderValue.toString())
+                    //Log.d("Gender --->", genderValue.toString())
                     viewModel.updateBirthday(editedBirthday)
                     dismiss()
                 }

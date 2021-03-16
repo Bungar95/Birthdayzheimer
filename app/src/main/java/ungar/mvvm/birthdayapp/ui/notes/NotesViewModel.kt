@@ -31,4 +31,8 @@ class NotesViewModel @ViewModelInject constructor(
     fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         birthdayDao.deleteNote(note)
     }
+
+    fun onNoteCheckedChanged(note: Note, isChecked: Boolean) = viewModelScope.launch {
+        birthdayDao.updateNote(note.copy(completed = isChecked))
+    }
 }

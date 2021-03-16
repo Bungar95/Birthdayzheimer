@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.customview.getCustomView
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_add_note.*
 import kotlinx.android.synthetic.main.dialog_details_note.*
 import kotlinx.android.synthetic.main.dialog_details_note.view.*
 import kotlinx.android.synthetic.main.fragment_notes.*
+import kotlinx.android.synthetic.main.item_note.*
 import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.databinding.FragmentNotesBinding
 import ungar.mvvm.birthdayapp.model.Note
@@ -59,6 +62,10 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
                 //getActionButton(WhichButton.POSITIVE).isEnabled = false
 
                 positiveButton(R.string.add_note) {
+                    if(noteContent.text.isNullOrBlank()){
+                        Snackbar.make(requireView(), getString(R.string.no_note_content), Snackbar.LENGTH_SHORT ).show()
+                        return@positiveButton
+                    }
                     contentValue = noteContent.text.toString()
                     important = checkbox_important.isChecked
                     val newNote = Note(
@@ -74,6 +81,7 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
 
             }
         }
+
     }
 
     override fun onItemClick(note: Note) {
@@ -127,6 +135,10 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
                 noteContent.setText(contentValue)
                 checkbox_important.isChecked = important
                 positiveButton(R.string.edit_birthday) {
+                    if(noteContent.text.isNullOrBlank()){
+                        Snackbar.make(requireView(), getString(R.string.no_note_content), Snackbar.LENGTH_SHORT ).show()
+                        return@positiveButton
+                    }
                     contentValue = noteContent.text.toString()
                     important = checkbox_important.isChecked
                     val editedNote = Note(
@@ -145,6 +157,10 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
                 }
 
             }
+    }
+
+    override fun onCheckBoxClick(note: Note, isChecked: Boolean) {
+        viewModel.onNoteCheckedChanged(note, isChecked)
     }
 
     private fun removeEmptyPlaceholder(){

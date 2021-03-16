@@ -34,6 +34,13 @@ class NotesAdapter(private val listener: OnItemClickListener, private val contex
                         listener.onItemClick(task)
                     }
                 }
+                checkboxNoteCompleted.setOnClickListener {
+                    val position = adapterPosition
+                    if(position != RecyclerView.NO_POSITION){
+                        val note = getItem(position)
+                        listener.onCheckBoxClick(note, checkboxNoteCompleted.isChecked)
+                    }
+                }
             }
         }
 
@@ -50,6 +57,7 @@ class NotesAdapter(private val listener: OnItemClickListener, private val contex
 
     interface OnItemClickListener {
         fun onItemClick(note: Note)
+        fun onCheckBoxClick(note: Note, checked: Boolean)
     }
 
     class DiffCallback : DiffUtil.ItemCallback<Note>(){
@@ -59,4 +67,5 @@ class NotesAdapter(private val listener: OnItemClickListener, private val contex
         override fun areContentsTheSame(oldItem: Note, newItem: Note) =
             oldItem == newItem
     }
+
 }

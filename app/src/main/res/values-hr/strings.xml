@@ -14,11 +14,13 @@
     <!-- Fragment BIRTHDAYS -->
     <string name="no_birthdays_recycler">Nema rođendana! Dodajte jedan pomoću gumba u nastavku!</string>
     <string name="no_search_result">Nijedan rođendan nije pronađen</string>
+    <string name="no_name">Ime ne može biti prazno. Pokušajte ponovno!</string>
     <string name="open_options_description">Otvori dodatne opcije</string>
     <string name="search_hint">Pretraži rođendane</string>
 
     <!-- Fragment NOTES -->
     <string name="no_notes_recycler">Nema bilješki! Ako imate ideju za nečiji rođendan i ne želite ju zaboraviti, dodajte bilješke pomoću gumba u nastavku!</string>
+    <string name="no_note_content">Sadržaj bilješke ne može biti prazan. Pokušajte ponovno!</string>
 
     <!-- Fragment OPTIONS -->
     <string name="options_language">Jezik aplikacije</string>
