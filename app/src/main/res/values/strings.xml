@@ -14,11 +14,14 @@
     <!-- Fragment BIRTHDAYS -->
     <string name="no_birthdays_recycler">No birthdays! Add one using the button below!</string>
     <string name="no_search_result">No birthdays found</string>
+    <string name="no_name">Name can\'t be empty! Try again.</string>
     <string name="open_options_description">Open options</string>
     <string name="search_hint">Search birthdays</string>
 
+
     <!-- Fragment NOTES -->
     <string name="no_notes_recycler">No notes! If you got an idea for someone\'s birthday and you don\'t want to forget it, add notes using the button below!</string>
+    <string name="no_note_content">Note content can\'t be empty! Try again.</string>
 
     <!-- Fragment OPTIONS -->
     <string name="options_language">App language</string>
@@ -26,6 +29,8 @@
     <string name="language_explanation">The application uses your phone\'s language settings to determine it\'s language. Currently, the only supported
                                         languages are English (default) and Croatian.</string>
     <string name="options_nightMode">Night Mode</string>
+    <string name="nightMode_explanation">It is possible that when changing the night mode, there is an uncontrolled change of the night and day theme for a second, but it should work from a few attempts. I will try to find the reason and fix it.</string>
+
 
     <!-- Dialog add birthday -->
     <string name="add_name">Insert name</string>

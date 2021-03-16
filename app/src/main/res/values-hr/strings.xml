@@ -14,11 +14,13 @@
     <!-- Fragment BIRTHDAYS -->
     <string name="no_birthdays_recycler">Nema rođendana! Dodajte jedan pomoću gumba u nastavku!</string>
     <string name="no_search_result">Nijedan rođendan nije pronađen</string>
+    <string name="no_name">Ime ne može biti prazno. Pokušajte ponovno!</string>
     <string name="open_options_description">Otvori dodatne opcije</string>
     <string name="search_hint">Pretraži rođendane</string>
 
     <!-- Fragment NOTES -->
     <string name="no_notes_recycler">Nema bilješki! Ako imate ideju za nečiji rođendan i ne želite ju zaboraviti, dodajte bilješke pomoću gumba u nastavku!</string>
+    <string name="no_note_content">Sadržaj bilješke ne može biti prazan. Pokušajte ponovno!</string>
 
     <!-- Fragment OPTIONS -->
     <string name="options_language">Jezik aplikacije</string>
@@ -26,6 +28,7 @@
     <string name="language_explanation">Aplikacija koristi jezične postavke vašeg telefona da bi odredila svoj jezik. Trenutno jedini podržani
                                         jezici su engleski i hrvatski.</string>
     <string name="options_nightMode">Noćni način rada</string>
+    <string name="nightMode_explanation">Moguće je da prilikom mijenjanja noćnog načina rada dođe do nekontroliranog mijenjanja noćne i dnevne teme na sekundu, ali trebalo bi raditi iz nekoliko pokušaja. Pokušat ću pronaći razlog i popraviti to. </string>
 
     <!-- Dialog add birthday -->
     <string name="add_name">Unesi ime</string>

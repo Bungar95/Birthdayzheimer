@@ -13,7 +13,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <ImageView
                 android:id="@+id/imgProfile"
@@ -31,7 +32,7 @@
                 android:gravity="clip_vertical|center_horizontal|fill_vertical"
                 android:maxLength="3"
                 android:minLines="3"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:text="@string/_years"
                 android:textAlignment="center"
                 android:textSize="24sp"
