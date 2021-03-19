@@ -20,4 +20,9 @@
         android:name="ungar.mvvm.birthdayapp.ui.notes.NotesFragment"
         android:label="@string/fragment_notes"
         tools:layout="@layout/fragment_notes" />
+    <fragment
+        android:id="@+id/wishesFragment"
+        android:name="ungar.mvvm.birthdayapp.ui.wishes.WishesFragment"
+        android:label="fragment_wishes"
+        tools:layout="@layout/fragment_wishes" />
 </navigation>

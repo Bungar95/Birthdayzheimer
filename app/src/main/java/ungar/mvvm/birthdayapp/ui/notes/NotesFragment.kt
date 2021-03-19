@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.item_note.*
 import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.databinding.FragmentNotesBinding
 import ungar.mvvm.birthdayapp.model.Note
+import ungar.mvvm.birthdayapp.model.Wish
 
 @AndroidEntryPoint
 class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClickListener {

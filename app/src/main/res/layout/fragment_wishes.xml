@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.wishes.WishesFragment">
+
+    <TextView
+        android:id="@+id/titleWishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/acme"
+        android:paddingStart="8dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/fragment_wishes"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/noWishes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="5"
+        android:paddingHorizontal="48dp"
+        android:paddingVertical="48dp"
+        android:scrollbarSize="0dp"
+        android:text="@string/no_wishes_recycler"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="#C5959595"
+        app:drawableTint="#C5959595"
+        app:drawableTopCompat="@drawable/ic_nothing_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleWishes" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewWishes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleWishes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
