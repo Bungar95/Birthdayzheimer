@@ -10,6 +10,7 @@
     <string name="fragment_birthdays">ROĐENDANI</string>
     <string name="fragment_settings">POSTAVKE</string>
     <string name="fragment_notes">BILJEŠKE</string>
+    <string name="fragment_wishes">ČESTITKE</string>
 
     <!-- Fragment BIRTHDAYS -->
     <string name="no_birthdays_recycler">Nema rođendana! Dodajte jedan pomoću gumba u nastavku!</string>
@@ -29,6 +30,9 @@
                                         jezici su engleski i hrvatski.</string>
     <string name="options_nightMode">Noćni način rada</string>
     <string name="nightMode_explanation">Moguće je da prilikom mijenjanja noćnog načina rada dođe do nekontroliranog mijenjanja noćne i dnevne teme na sekundu, ali trebalo bi raditi iz nekoliko pokušaja. Pokušat ću pronaći razlog i popraviti to. </string>
+
+    <!-- Fragment WISHES -->
+    <string name="no_wishes_recycler">Nešto možda nije u redu s dohvaćanjem popisa čestitki. Obratite se autoru aplikacije ili pokušajte ponovo kasnije.</string>
 
     <!-- Dialog add birthday -->
     <string name="add_name">Unesi ime</string>
@@ -55,6 +59,8 @@
     <!-- Dialog edit note -->
     <string name="edit_note">Uredi bilješku</string>
     <string name="edit_note_description">Promjena planova? Uredite postojeću bilješku.</string>
+    <string name="created_date_note">Kreirano:</string>
+    <string name="edited_date_note">Posljednja izmjena:</string>
 
     <!-- Selected birthday -->
     <string name="_100">100</string>

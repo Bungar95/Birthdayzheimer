@@ -14,8 +14,7 @@ import ungar.mvvm.birthdayapp.model.PreferencesManager
 
 @HiltViewModel
 class NotesViewModel @ViewModelInject constructor(
-    private val birthdayDao: BirthdayDao,
-    private val preferencesManager: PreferencesManager
+    private val birthdayDao: BirthdayDao
 ): ViewModel() {
 
     val notes = birthdayDao.getNotes().asLiveData()
@@ -32,7 +31,7 @@ class NotesViewModel @ViewModelInject constructor(
         birthdayDao.deleteNote(note)
     }
 
-    fun onNoteCheckedChanged(note: Note, isChecked: Boolean) = viewModelScope.launch {
+    fun onNoteCheckedChanged(note: Note, isChecked: Boolean) = viewModelScope.launch(Dispatchers.IO) {
         birthdayDao.updateNote(note.copy(completed = isChecked))
     }
 }

@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -12,7 +13,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "ungar.mvvm.datepicker"
+        applicationId "ungar.mvvm.birthdayzheimer"
         minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
@@ -88,6 +89,19 @@ dependencies {
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha07"
     implementation "androidx.datastore:datastore-core:1.0.0-alpha07"
+
+    // Retrofit
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:26.7.0')
+
+    // Add the dependency for the Firebase SDK for Google Analytics
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
 }
 
 kapt {

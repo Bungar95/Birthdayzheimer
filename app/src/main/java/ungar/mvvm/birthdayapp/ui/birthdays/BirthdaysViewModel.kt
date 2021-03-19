@@ -17,7 +17,7 @@ import java.time.LocalDate
 import java.util.*
 
 @HiltViewModel
-//@Inject that replaced @ViewModelInject throws errors?
+//@Inject that replaced @ViewModelInject in later release throws errors?
 class BirthdaysViewModel @ViewModelInject constructor(
     private val birthdayDao: BirthdayDao,
     private val preferencesManager: PreferencesManager
