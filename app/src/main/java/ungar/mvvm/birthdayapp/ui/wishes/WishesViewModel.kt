@@ -15,11 +15,11 @@ class WishesViewModel @ViewModelInject constructor(
     private val repository: Repository
     ): ViewModel() {
 
-    var myResponse: MutableLiveData<Response<Wish>> = MutableLiveData()
+    var myResponse: MutableLiveData<Response<List<Wish>>> = MutableLiveData()
 
     fun getQuotes() {
         viewModelScope.launch {
-            val response: Response<Wish> = repository.getWishes()
+            val response: Response<List<Wish>> = repository.getWishes()
             myResponse.value = response
         }
     }

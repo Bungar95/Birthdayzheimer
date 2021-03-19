@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 class Repository @Inject constructor() {
 
-    suspend fun getWishes(): Response<Wish> {
+    suspend fun getWishes(): Response<List<Wish>> {
         return RetrofitInstance.api.getQuotes()
     }
 }
