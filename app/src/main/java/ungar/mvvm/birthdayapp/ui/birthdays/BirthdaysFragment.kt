@@ -4,15 +4,11 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.widget.TextView
-import androidx.appcompat.widget.SearchView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.LayoutMode
@@ -72,20 +68,20 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays), BirthdaysAdapte
         // The options fab button launches in the same state it was during the last use
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             if (viewModel.preferencesFlow.first().openOptionsCard)
-                homeMain.progress = 1.0F
+                motionLayoutBirthday.progress = 1.0F
             else
-                homeMain.progress = 0.0F
+                motionLayoutBirthday.progress = 0.0F
         }
 
         // MotionLayout
         optionsMiniFab.setOnClickListener {
-            when (homeMain.progress) {
+            when (motionLayoutBirthday.progress) {
                 0.0F -> {
-                    homeMain.transitionToEnd()
+                    motionLayoutBirthday.transitionToEnd()
                     viewModel.onOptionsCardChanged(true)
                 }
                 1.0F -> {
-                    homeMain.transitionToStart()
+                    motionLayoutBirthday.transitionToStart()
                     viewModel.onOptionsCardChanged(false)
                 }
             }

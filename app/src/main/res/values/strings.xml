@@ -33,6 +33,8 @@
 
     <!-- Fragment WISHES -->
     <string name="no_wishes_recycler">Something might be wrong with retrieving the list of wishes. Please contact the app author or try again later.</string>
+    <string name="wishes_only_english">Note: the birthday wishes are only in English.</string>
+    <string name="wishes_relation">Recommended for: </string>
 
 
     <!-- Dialog add birthday -->

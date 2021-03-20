@@ -13,24 +13,16 @@
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
-        <Constraint android:id="@id/noEvents">
+        <Constraint android:id="@id/noWishes">
             <PropertySet
                 app:applyMotionScene="false"
                 app:visibilityMode="ignore" />
         </Constraint>
-        <Constraint
-            android:id="@+id/fab_add_birthday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="0.1dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintHorizontal_bias="1.0" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/optionsMiniFab"
+            android:id="@+id/wishesMiniFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="0.8"
@@ -38,13 +30,13 @@
             android:scaleX="1.1"
             android:scaleY="1.1"
             app:transitionEasing="decelerate" />
-
         <Constraint
-            android:id="@+id/optionsCard"
+            android:id="@+id/wishesCard"
             android:layout_height="0dp"
             android:scaleX="1.2"
             android:scaleY="0.0"
             app:layout_constraintTop_toTopOf="parent"
             app:transitionEasing="decelerate" />
     </ConstraintSet>
+
 </MotionScene>

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ungar.mvvm.birthdayapp.databinding.ItemWishBinding
 import ungar.mvvm.birthdayapp.model.Wish
 
-class WishesAdapter(private val listener: OnItemClickListener, private val context: Context) : ListAdapter<Wish, WishesAdapter.WishesViewHolder>(DiffCallback()) {
+class WishesAdapter(private val listener: OnItemClickListener) : ListAdapter<Wish, WishesAdapter.WishesViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishesViewHolder {
         val binding = ItemWishBinding.inflate(LayoutInflater.from(parent.context), parent, false)
