@@ -17,7 +17,7 @@ private const val TAG = "PreferencesManager"
 
 enum class SortOrder {BY_NAME, BY_DATE}
 
-data class OptionsPreferences(val openOptionsCard: Boolean, val theme: Boolean)
+data class OptionsPreferences(val openOptionsCard: Boolean, val theme: Boolean, val openWishesCard: Boolean)
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -38,12 +38,19 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
         .map { preferences ->
             val optionsCardOpen = preferences[PreferenceKeys.OPTIONS_CARD_OPEN] ?: false
             val theme = preferences[PreferenceKeys.THEME] ?: false
-            OptionsPreferences(optionsCardOpen, theme)
+            val wishesCardOpen = preferences[PreferenceKeys.WISHES_CARD_OPEN] ?: false
+            OptionsPreferences(optionsCardOpen, theme, wishesCardOpen)
         }
 
     suspend fun updateOptionsCardOpen(optionsCardOpen: Boolean){
         dataStore.edit { preferences ->
             preferences[PreferenceKeys.OPTIONS_CARD_OPEN] = optionsCardOpen
+        }
+    }
+
+    suspend fun updateWishesCardOpen(wishesCardOpen: Boolean){
+        dataStore.edit { preferences ->
+            preferences[PreferenceKeys.WISHES_CARD_OPEN] = wishesCardOpen
         }
     }
 
@@ -56,5 +63,6 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
     private object PreferenceKeys {
         val OPTIONS_CARD_OPEN = booleanPreferencesKey("options_card_open")
         val THEME = booleanPreferencesKey("app_nightMode")
+        val WISHES_CARD_OPEN = booleanPreferencesKey("wishes_card_open")
     }
 }
