@@ -1,11 +1,13 @@
 package ungar.mvvm.birthdayapp.ui.wishes
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -53,6 +55,7 @@ class WishesFragment: Fragment(R.layout.fragment_wishes), WishesAdapter.OnItemCl
         initRecyclerView()
         observeResponse()
         observeWishesMotion()
+        initWishFilter()
     }
 
     private fun initRecyclerView() {
@@ -65,6 +68,7 @@ class WishesFragment: Fragment(R.layout.fragment_wishes), WishesAdapter.OnItemCl
 
     }
 
+    //On response, fill recyclerview
     private fun observeResponse() {
         viewModel.myResponse.observe(viewLifecycleOwner) { response ->
             if(response.isNotEmpty()){
@@ -96,15 +100,19 @@ class WishesFragment: Fragment(R.layout.fragment_wishes), WishesAdapter.OnItemCl
                 }
             }
         }
+
+    }
+
+    //*work in progress*//
+    private fun initWishFilter(){
+        wishFilterEditText.setOnClickListener {
+            Snackbar.make(requireView(), getString(R.string.in_development), Snackbar.LENGTH_SHORT).show()
+            //val builder = AlertDialog.Builder(this.requireContext())
+        }
     }
 
     override fun onItemClick(wish: Wish) {
-        Snackbar.make(requireView(), getString(R.string.wishes_relation)+" "+wish.relation.toString(), Snackbar.LENGTH_LONG).show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
+        Snackbar.make(requireView(), getString(R.string.wishes_relation, wish.relation), Snackbar.LENGTH_LONG).show()
     }
 
     private fun removeErrorPlaceholder(){
@@ -113,5 +121,10 @@ class WishesFragment: Fragment(R.layout.fragment_wishes), WishesAdapter.OnItemCl
 
     private fun restoreErrorPlaceholder(){
         noWishes.visibility = View.VISIBLE
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

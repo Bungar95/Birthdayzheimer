@@ -34,7 +34,8 @@
     <!-- Fragment WISHES -->
     <string name="no_wishes_recycler">Nešto možda nije u redu s dohvaćanjem popisa čestitki. Obratite se autoru aplikacije ili pokušajte ponovo kasnije.</string>
     <string name="wishes_only_english">Napomena: rođendanske čestitke su isključivo na engleskom jeziku.</string>
-    <string name="wishes_relation">Preporučeno za: </string>
+    <string name="wishes_relation">Preporučeno za: %1$s</string>
+    <string name="wishes_filter_description">Odaberite odnos kao filter čestitki</string>
 
     <!-- Dialog add birthday -->
     <string name="add_name">Unesi ime</string>
@@ -109,6 +110,43 @@
     <string name="gender_female">Žensko</string>
     <string name="gender_neither">Nijedno/Nebitno</string>
 
+    <!-- Birthday Wish Relations -->
+    <!-- json is only in english -->
+    <string-array name="choice_relations">
+        <item>Mother</item>
+        <item>Father</item>
+        <item>Brother</item>
+        <item>Sister</item>
+        <item>Grandmother</item>
+        <item>Grandfather</item>
+        <item>Boyfriend</item>
+        <item>Girlfriend</item>
+        <item>Fiance</item>
+        <item>Wife</item>
+        <item>Husband</item>
+        <item>Son</item>
+        <item>Grand-son</item>
+        <item>Daughter</item>
+        <item>Grand-daughter</item>
+        <item>Niece</item>
+        <item>Nephew</item>
+        <item>Uncle</item>
+        <item>Aunt</item>
+        <item>Cousin</item>
+        <item>Mother-in-law</item>
+        <item>Father-in-law</item>
+        <item>Brother-in-law</item>
+        <item>Sister-in-law</item>
+        <item>Friend</item>
+        <item>Colleague</item>
+        <item>Teacher</item>
+        <item>Student</item>
+        <item>Boss</item>
+    </string-array>
+
     <!-- Misc. -->
     <string name="details">Detalji</string>
+    <string name="details_with_line">Detalji -\u0020</string>
+    <string name="birthday_date"> %1$d / %2$d / %3$d </string>
+    <string name="in_development">U izradi</string>
 </resources>

@@ -54,18 +54,37 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wishFilterLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxCornerRadiusBottomEnd="@dimen/rounded_corners"
+                app:boxCornerRadiusBottomStart="@dimen/rounded_corners"
+                app:boxCornerRadiusTopEnd="@dimen/rounded_corners"
+                app:boxCornerRadiusTopStart="@dimen/rounded_corners"
+                app:boxStrokeWidth="2dp"
+                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/wishFilterEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableEnd="@drawable/ic_arrow_down_12"
+                    android:drawableTint="?colorAccent"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:hint="@string/wishes_filter_description"
+                    android:padding="5dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
@@ -83,7 +102,7 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         android:textColor="#C5959595"
         android:visibility="gone"
-        app:drawableTint="#C5959595"
+        app:drawableTint="#C5959599"
         app:drawableTopCompat="@drawable/ic_nothing_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,6 +119,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleWishes" />
+        app:layout_constraintTop_toBottomOf="@id/wishesCard" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

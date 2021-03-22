@@ -42,7 +42,7 @@ class BirthdaysAdapter(private val listener: OnItemClickListener, private val co
                 imgProfile.setImageResource(birthday.profilePicture)
                 tvMonth.text = setMonth(birthday.month)
                 tvName.text = birthday.name
-                tvDate.text = "${birthday.day} ${birthday.month} ${birthday.year}"
+                tvDate.text = context.getString(R.string.birthday_date, birthday.day, birthday.month, birthday.year)
             }
         }
     }
