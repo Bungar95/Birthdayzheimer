@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ungar.mvvm.birthdayapp.databinding.ItemNoteBinding
 import ungar.mvvm.birthdayapp.model.Note
 
-class NotesAdapter(private val listener: OnItemClickListener, private val context: Context) : ListAdapter<Note, NotesAdapter.NotesViewHolder>(DiffCallback()) {
+class NotesAdapter(private val listener: OnItemClickListener) : ListAdapter<Note, NotesAdapter.NotesViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         val binding = ItemNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)

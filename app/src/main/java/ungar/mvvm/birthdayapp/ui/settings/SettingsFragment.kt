@@ -19,16 +19,19 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeOptions()
+    }
 
+    private fun observeOptions(){
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             switch_nightMode.isChecked = viewModel.preferencesFlow.first().theme
         }
 
         switch_nightMode.setOnCheckedChangeListener{ _, checkedId ->
-                when(checkedId) {
-                    false -> setTheme(AppCompatDelegate.MODE_NIGHT_NO)
-                    true -> setTheme(AppCompatDelegate.MODE_NIGHT_YES)
-                }
+            when(checkedId) {
+                false -> setTheme(AppCompatDelegate.MODE_NIGHT_NO)
+                true -> setTheme(AppCompatDelegate.MODE_NIGHT_YES)
+            }
         }
     }
 

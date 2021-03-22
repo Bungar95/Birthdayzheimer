@@ -1,7 +1,9 @@
 package ungar.mvvm.birthdayapp.ui.notes
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -26,28 +28,29 @@ import ungar.mvvm.birthdayapp.model.Wish
 class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClickListener {
 
     private val viewModel: NotesViewModel by viewModels()
+    private var binding: FragmentNotesBinding? = null
+    private val noteAdapter = NotesAdapter(this)
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = FragmentNotesBinding.inflate(inflater, container, false)
+        return binding?.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val binding = FragmentNotesBinding.bind(view)
+        initRecyclerView()
+        populateBirthdaysRecyclerView()
+        addNoteListener()
 
-        val noteAdapter = NotesAdapter(this, this.requireContext())
+    }
 
-        binding.apply {
-            recyclerViewNotes.apply{
-                adapter = noteAdapter
-                layoutManager = LinearLayoutManager(requireContext())
-                setHasFixedSize(true)
-            }
-        }
-
-        viewModel.notes.observe(viewLifecycleOwner) { notes ->
-            notes?.let { noteAdapter.submitList(notes) }
-            if(notes.isNotEmpty()) removeEmptyPlaceholder()
-            else restoreEmptyPlaceholder()
-        }
-
+    private fun addNoteListener() {
         fab_add_note.setOnClickListener {
 
             var contentValue = ""
@@ -82,7 +85,24 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
 
             }
         }
+    }
 
+    private fun populateBirthdaysRecyclerView() {
+        viewModel.notes.observe(viewLifecycleOwner) { notes ->
+            notes?.let { noteAdapter.submitList(notes) }
+            if(notes.isNotEmpty()) removeEmptyPlaceholder()
+            else restoreEmptyPlaceholder()
+        }
+    }
+
+    private fun initRecyclerView() {
+        binding.apply {
+            recyclerViewNotes.apply{
+                adapter = noteAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+                setHasFixedSize(true)
+            }
+        }
     }
 
     override fun onItemClick(note: Note) {
@@ -171,5 +191,10 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
 
     private fun restoreEmptyPlaceholder(){
         noNotes.visibility = View.VISIBLE
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }
