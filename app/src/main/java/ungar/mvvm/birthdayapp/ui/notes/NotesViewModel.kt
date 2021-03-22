@@ -7,15 +7,13 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ungar.mvvm.birthdayapp.model.Birthday
 import ungar.mvvm.birthdayapp.model.BirthdayDao
 import ungar.mvvm.birthdayapp.model.Note
-import ungar.mvvm.birthdayapp.model.PreferencesManager
 
 @HiltViewModel
 class NotesViewModel @ViewModelInject constructor(
     private val birthdayDao: BirthdayDao
-): ViewModel() {
+) : ViewModel() {
 
     val notes = birthdayDao.getNotes().asLiveData()
 
@@ -31,7 +29,8 @@ class NotesViewModel @ViewModelInject constructor(
         birthdayDao.deleteNote(note)
     }
 
-    fun onNoteCheckedChanged(note: Note, isChecked: Boolean) = viewModelScope.launch(Dispatchers.IO) {
-        birthdayDao.updateNote(note.copy(completed = isChecked))
-    }
+    fun onNoteCheckedChanged(note: Note, isChecked: Boolean) =
+        viewModelScope.launch(Dispatchers.IO) {
+            birthdayDao.updateNote(note.copy(completed = isChecked))
+        }
 }

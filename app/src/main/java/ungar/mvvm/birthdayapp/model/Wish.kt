@@ -13,5 +13,5 @@ data class Wish(
     @Expose
     @SerializedName("relation")
     val relation: String?
-): Parcelable {
+) : Parcelable {
 }

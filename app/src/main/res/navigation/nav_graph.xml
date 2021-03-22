@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/birthdaysFragment"
         android:name="ungar.mvvm.birthdayapp.ui.birthdays.BirthdaysFragment"
-        android:label="Birthdays"
+        android:label="@string/fragment_birthdays"
         tools:layout="@layout/fragment_birthdays" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="ungar.mvvm.birthdayapp.ui.settings.SettingsFragment"
-        android:label="Settings"
+        android:label="@string/fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/notesFragment"
@@ -23,6 +23,6 @@
     <fragment
         android:id="@+id/wishesFragment"
         android:name="ungar.mvvm.birthdayapp.ui.wishes.WishesFragment"
-        android:label="fragment_wishes"
+        android:label="@string/fragment_wishes"
         tools:layout="@layout/fragment_wishes" />
 </navigation>

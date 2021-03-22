@@ -1,6 +1,5 @@
 package ungar.mvvm.birthdayapp.ui.notes
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -10,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ungar.mvvm.birthdayapp.databinding.ItemNoteBinding
 import ungar.mvvm.birthdayapp.model.Note
 
-class NotesAdapter(private val listener: OnItemClickListener) : ListAdapter<Note, NotesAdapter.NotesViewHolder>(DiffCallback()) {
+class NotesAdapter(private val listener: OnItemClickListener) :
+    ListAdapter<Note, NotesAdapter.NotesViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         val binding = ItemNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,16 +27,16 @@ class NotesAdapter(private val listener: OnItemClickListener) : ListAdapter<Note
 
         init {
             binding.apply {
-                root.setOnClickListener{
+                root.setOnClickListener {
                     val position = adapterPosition
-                    if(position != RecyclerView.NO_POSITION){
+                    if (position != RecyclerView.NO_POSITION) {
                         val task = getItem(position)
                         listener.onItemClick(task)
                     }
                 }
                 checkboxNoteCompleted.setOnClickListener {
                     val position = adapterPosition
-                    if(position != RecyclerView.NO_POSITION){
+                    if (position != RecyclerView.NO_POSITION) {
                         val note = getItem(position)
                         listener.onCheckBoxClick(note, checkboxNoteCompleted.isChecked)
                     }
@@ -60,7 +60,7 @@ class NotesAdapter(private val listener: OnItemClickListener) : ListAdapter<Note
         fun onCheckBoxClick(note: Note, checked: Boolean)
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Note>(){
+    class DiffCallback : DiffUtil.ItemCallback<Note>() {
         override fun areItemsTheSame(oldItem: Note, newItem: Note) =
             oldItem.id == newItem.id
 

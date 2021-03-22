@@ -1,6 +1,5 @@
 package ungar.mvvm.birthdayapp.ui.wishes
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ungar.mvvm.birthdayapp.databinding.ItemWishBinding
 import ungar.mvvm.birthdayapp.model.Wish
 
-class WishesAdapter(private val listener: OnItemClickListener) : ListAdapter<Wish, WishesAdapter.WishesViewHolder>(DiffCallback()) {
+class WishesAdapter(private val listener: OnItemClickListener) :
+    ListAdapter<Wish, WishesAdapter.WishesViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishesViewHolder {
         val binding = ItemWishBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -47,7 +47,7 @@ class WishesAdapter(private val listener: OnItemClickListener) : ListAdapter<Wis
         fun onItemClick(wish: Wish)
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Wish>(){
+    class DiffCallback : DiffUtil.ItemCallback<Wish>() {
         override fun areItemsTheSame(oldItem: Wish, newItem: Wish) =
             oldItem.quote == newItem.quote
 

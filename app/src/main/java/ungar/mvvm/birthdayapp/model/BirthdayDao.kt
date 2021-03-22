@@ -9,7 +9,7 @@ interface BirthdayDao {
     //Birthdays
 
     @Query("SELECT * FROM birthday_table")
-    fun getBirthdays() : Flow<List<Birthday>>
+    fun getBirthdays(): Flow<List<Birthday>>
 
     @Query("SELECT * FROM birthday_table WHERE id=:id")
     fun getSingleBirthday(id: Int): Birthday
@@ -32,7 +32,7 @@ interface BirthdayDao {
     //Notes
 
     @Query("SELECT * FROM note_table")
-    fun getNotes() : Flow<List<Note>>
+    fun getNotes(): Flow<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note: Note)

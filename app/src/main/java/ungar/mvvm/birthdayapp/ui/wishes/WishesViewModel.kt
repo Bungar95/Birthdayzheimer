@@ -1,7 +1,6 @@
 package ungar.mvvm.birthdayapp.ui.wishes
 
 import android.util.Log
-import androidx.datastore.preferences.core.Preferences
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +10,6 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import ungar.mvvm.birthdayapp.model.PreferencesManager
 import ungar.mvvm.birthdayapp.model.Wish
-import ungar.mvvm.birthdayapp.network.RetrofitInstance
 import ungar.mvvm.birthdayapp.repository.Repository
 
 class WishesViewModel @ViewModelInject constructor(

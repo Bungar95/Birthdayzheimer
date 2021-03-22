@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_birthdays.*
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.coroutines.flow.first
 import ungar.mvvm.birthdayapp.R
@@ -22,13 +21,13 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         observeOptions()
     }
 
-    private fun observeOptions(){
+    private fun observeOptions() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             switch_nightMode.isChecked = viewModel.preferencesFlow.first().theme
         }
 
-        switch_nightMode.setOnCheckedChangeListener{ _, checkedId ->
-            when(checkedId) {
+        switch_nightMode.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
                 false -> setTheme(AppCompatDelegate.MODE_NIGHT_NO)
                 true -> setTheme(AppCompatDelegate.MODE_NIGHT_YES)
             }
