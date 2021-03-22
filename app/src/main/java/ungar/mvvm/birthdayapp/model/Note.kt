@@ -14,7 +14,7 @@ data class Note(
     val completed: Boolean = false,
     val created: Long = System.currentTimeMillis(),
     @PrimaryKey(autoGenerate = true) val id: Int = 0
-): Parcelable {
+) : Parcelable {
     val createdDateFormatted: String
-    get() = DateFormat.getDateTimeInstance().format(created)
+        get() = DateFormat.getDateTimeInstance().format(created)
 }

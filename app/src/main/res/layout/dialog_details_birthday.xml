@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:alpha="0.25"
-        android:gravity="center_vertical"
+        android:gravity="center_horizontal"
         android:text="@string/_100"
         android:textAlignment="center"
         android:textSize="82sp"

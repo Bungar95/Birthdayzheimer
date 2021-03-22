@@ -10,7 +10,7 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 @Database(entities = [Birthday::class, Note::class], version = 4)
-abstract class BirthdayDatabase: RoomDatabase() {
+abstract class BirthdayDatabase : RoomDatabase() {
 
     abstract fun birthdayDao(): BirthdayDao
 

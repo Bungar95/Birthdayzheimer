@@ -22,10 +22,9 @@ import kotlinx.android.synthetic.main.item_note.*
 import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.databinding.FragmentNotesBinding
 import ungar.mvvm.birthdayapp.model.Note
-import ungar.mvvm.birthdayapp.model.Wish
 
 @AndroidEntryPoint
-class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClickListener {
+class NotesFragment : Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClickListener {
 
     private val viewModel: NotesViewModel by viewModels()
     private var binding: FragmentNotesBinding? = null
@@ -66,8 +65,12 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
                 //getActionButton(WhichButton.POSITIVE).isEnabled = false
 
                 positiveButton(R.string.add_note) {
-                    if(noteContent.text.isNullOrBlank()){
-                        Snackbar.make(requireView(), getString(R.string.no_note_content), Snackbar.LENGTH_SHORT ).show()
+                    if (noteContent.text.isNullOrBlank()) {
+                        Snackbar.make(
+                            requireView(),
+                            getString(R.string.no_note_content),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
                         return@positiveButton
                     }
                     contentValue = noteContent.text.toString()
@@ -90,14 +93,14 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
     private fun populateBirthdaysRecyclerView() {
         viewModel.notes.observe(viewLifecycleOwner) { notes ->
             notes?.let { noteAdapter.submitList(notes) }
-            if(notes.isNotEmpty()) removeEmptyPlaceholder()
+            if (notes.isNotEmpty()) removeEmptyPlaceholder()
             else restoreEmptyPlaceholder()
         }
     }
 
     private fun initRecyclerView() {
         binding.apply {
-            recyclerViewNotes.apply{
+            recyclerViewNotes.apply {
                 adapter = noteAdapter
                 layoutManager = LinearLayoutManager(requireContext())
                 setHasFixedSize(true)
@@ -118,7 +121,7 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
             }
             detailsContent.text = note.content
             detailsNoteDate.text = note.createdDateFormatted
-            if(note.important) detailsImportant.visibility = View.VISIBLE
+            if (note.important) detailsImportant.visibility = View.VISIBLE
             else detailsImportant.visibility = View.GONE
 
         }
@@ -156,8 +159,12 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
                 noteContent.setText(contentValue)
                 checkbox_important.isChecked = important
                 positiveButton(R.string.edit_birthday) {
-                    if(noteContent.text.isNullOrBlank()){
-                        Snackbar.make(requireView(), getString(R.string.no_note_content), Snackbar.LENGTH_SHORT ).show()
+                    if (noteContent.text.isNullOrBlank()) {
+                        Snackbar.make(
+                            requireView(),
+                            getString(R.string.no_note_content),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
                         return@positiveButton
                     }
                     contentValue = noteContent.text.toString()
@@ -184,12 +191,12 @@ class NotesFragment: Fragment(R.layout.fragment_notes), NotesAdapter.OnItemClick
         viewModel.onNoteCheckedChanged(note, isChecked)
     }
 
-    private fun removeEmptyPlaceholder(){
+    private fun removeEmptyPlaceholder() {
         val placeholder: TextView = requireView().findViewById(R.id.noNotes) ?: return
         placeholder.visibility = View.GONE
     }
 
-    private fun restoreEmptyPlaceholder(){
+    private fun restoreEmptyPlaceholder() {
         noNotes.visibility = View.VISIBLE
     }
 

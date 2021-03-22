@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayoutWish"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_wishes_scene"
-    android:id="@+id/motionLayoutWish"
     tools:context=".ui.wishes.WishesFragment">
 
     <TextView
@@ -76,10 +75,10 @@
                     android:id="@+id/wishFilterEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:clickable="true"
                     android:drawableEnd="@drawable/ic_arrow_down_12"
                     android:drawableTint="?colorAccent"
                     android:focusable="false"
-                    android:clickable="true"
                     android:hint="@string/wishes_filter_description"
                     android:padding="5dp" />
 

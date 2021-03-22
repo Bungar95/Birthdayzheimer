@@ -4,7 +4,6 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
-import ungar.mvvm.birthdayapp.R
 
 @Entity(tableName = "birthday_table")
 @Parcelize
@@ -16,4 +15,4 @@ data class Birthday(
     val gender: Int = 0,
     val profilePicture: Int,
     @PrimaryKey(autoGenerate = true) val id: Int = 0
-    ): Parcelable
+) : Parcelable

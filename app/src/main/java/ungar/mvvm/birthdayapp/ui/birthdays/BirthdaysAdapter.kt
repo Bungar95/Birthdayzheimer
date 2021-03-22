@@ -10,10 +10,12 @@ import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.databinding.ItemBirthdayBinding
 import ungar.mvvm.birthdayapp.model.Birthday
 
-class BirthdaysAdapter(private val listener: OnItemClickListener, private val context: Context) : ListAdapter<Birthday, BirthdaysAdapter.BirthdaysViewHolder>(DiffCallback()) {
+class BirthdaysAdapter(private val listener: OnItemClickListener, private val context: Context) :
+    ListAdapter<Birthday, BirthdaysAdapter.BirthdaysViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BirthdaysViewHolder {
-        val binding = ItemBirthdayBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemBirthdayBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BirthdaysViewHolder(binding)
     }
 
@@ -27,9 +29,9 @@ class BirthdaysAdapter(private val listener: OnItemClickListener, private val co
 
         init {
             binding.apply {
-                root.setOnClickListener{
+                root.setOnClickListener {
                     val position = adapterPosition
-                    if(position != RecyclerView.NO_POSITION){
+                    if (position != RecyclerView.NO_POSITION) {
                         val task = getItem(position)
                         listener.onItemClick(task)
                     }
@@ -42,7 +44,12 @@ class BirthdaysAdapter(private val listener: OnItemClickListener, private val co
                 imgProfile.setImageResource(birthday.profilePicture)
                 tvMonth.text = setMonth(birthday.month)
                 tvName.text = birthday.name
-                tvDate.text = context.getString(R.string.birthday_date, birthday.day, birthday.month, birthday.year)
+                tvDate.text = context.getString(
+                    R.string.birthday_date,
+                    birthday.day,
+                    birthday.month,
+                    birthday.year
+                )
             }
         }
     }
@@ -51,7 +58,7 @@ class BirthdaysAdapter(private val listener: OnItemClickListener, private val co
         fun onItemClick(birthday: Birthday)
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Birthday>(){
+    class DiffCallback : DiffUtil.ItemCallback<Birthday>() {
         override fun areItemsTheSame(oldItem: Birthday, newItem: Birthday) =
             oldItem.id == newItem.id
 
@@ -60,7 +67,7 @@ class BirthdaysAdapter(private val listener: OnItemClickListener, private val co
     }
 
     private fun setMonth(month: Int): String {
-        return when(month){
+        return when (month) {
             1 -> context.resources.getString(R.string.january_short)
             2 -> context.resources.getString(R.string.february_short)
             3 -> context.resources.getString(R.string.march_short)

@@ -124,7 +124,8 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays),
                 dismiss()
             }
             detailsName.text = birthday.name
-            detailsBirthDate.text = getString(R.string.birthday_date, birthday.day, birthday.month, birthday.year)
+            detailsBirthDate.text =
+                getString(R.string.birthday_date, birthday.day, birthday.month, birthday.year)
             detailsCountdown.text = viewModel.birthdayCountdown(birthday)
             viewModel.setYearEditText(birthday, detailsYears)
         }

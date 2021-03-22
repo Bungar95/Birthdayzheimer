@@ -15,9 +15,13 @@ import javax.inject.Singleton
 
 private const val TAG = "PreferencesManager"
 
-enum class SortOrder {BY_NAME, BY_DATE}
+enum class SortOrder { BY_NAME, BY_DATE }
 
-data class OptionsPreferences(val openOptionsCard: Boolean, val theme: Boolean, val openWishesCard: Boolean)
+data class OptionsPreferences(
+    val openOptionsCard: Boolean,
+    val theme: Boolean,
+    val openWishesCard: Boolean
+)
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -42,19 +46,19 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
             OptionsPreferences(optionsCardOpen, theme, wishesCardOpen)
         }
 
-    suspend fun updateOptionsCardOpen(optionsCardOpen: Boolean){
+    suspend fun updateOptionsCardOpen(optionsCardOpen: Boolean) {
         dataStore.edit { preferences ->
             preferences[PreferenceKeys.OPTIONS_CARD_OPEN] = optionsCardOpen
         }
     }
 
-    suspend fun updateWishesCardOpen(wishesCardOpen: Boolean){
+    suspend fun updateWishesCardOpen(wishesCardOpen: Boolean) {
         dataStore.edit { preferences ->
             preferences[PreferenceKeys.WISHES_CARD_OPEN] = wishesCardOpen
         }
     }
 
-    suspend fun updateThemeNightMode(theme: Boolean){
+    suspend fun updateThemeNightMode(theme: Boolean) {
         dataStore.edit { preferences ->
             preferences[PreferenceKeys.THEME] = theme
         }
