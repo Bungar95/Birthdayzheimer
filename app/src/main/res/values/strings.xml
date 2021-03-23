@@ -2,9 +2,7 @@
     <string name="app_name">Birthdays Reminder</string>
     <string name="btn_add">Add</string>
     <string name="btn_edit">Edit</string>
-    <string name="btn_edit_description">Edit birthday</string>
     <string name="btn_delete">Delete</string>
-    <string name="btn_delete_description">Delete birthday</string>
 
     <!-- Fragments titles -->
     <string name="fragment_birthdays">BIRTHDAYS</string>
@@ -18,10 +16,14 @@
     <string name="no_name">Name can\'t be empty! Try again.</string>
     <string name="open_options_description">Open options</string>
     <string name="search_hint">Search birthdays</string>
+    <string name="btn_edit_birthday_description">Edit birthday</string>
+    <string name="btn_delete_birthday_description">Delete birthday</string>
 
     <!-- Fragment NOTES -->
     <string name="no_notes_recycler">No notes! If you got an idea for someone\'s birthday and you don\'t want to forget it, add notes using the button below!</string>
     <string name="no_note_content">Note content can\'t be empty! Try again.</string>
+    <string name="btn_edit_note_description">Edit note</string>
+    <string name="btn_delete_note_description">Delete note</string>
 
     <!-- Fragment OPTIONS -->
     <string name="options_language">App language</string>

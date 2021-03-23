@@ -2,9 +2,8 @@
     <string name="app_name">Podsjetnik za rođendane</string>
     <string name="btn_add">Dodaj</string>
     <string name="btn_edit">Uredi</string>
-    <string name="btn_edit_description">Uredi rođendan</string>
     <string name="btn_delete">Obriši</string>
-    <string name="btn_delete_description">Obriši rođendan</string>
+
 
     <!-- Fragments titles -->
     <string name="fragment_birthdays">ROĐENDANI</string>
@@ -18,10 +17,14 @@
     <string name="no_name">Ime ne može biti prazno. Pokušajte ponovno!</string>
     <string name="open_options_description">Otvori dodatne opcije</string>
     <string name="search_hint">Pretraži rođendane</string>
+    <string name="btn_edit_birthday_description">Uredi rođendan</string>
+    <string name="btn_delete_birthday_description">Obriši rođendan</string>
 
     <!-- Fragment NOTES -->
     <string name="no_notes_recycler">Nema bilješki! Ako imate ideju za nečiji rođendan i ne želite ju zaboraviti, dodajte bilješke pomoću gumba u nastavku!</string>
     <string name="no_note_content">Sadržaj bilješke ne može biti prazan. Pokušajte ponovno!</string>
+    <string name="btn_edit_note_description">Uredi bilješku</string>
+    <string name="btn_delete_note_description">Obriši bilješku</string>
 
     <!-- Fragment OPTIONS -->
     <string name="options_language">Jezik aplikacije</string>
