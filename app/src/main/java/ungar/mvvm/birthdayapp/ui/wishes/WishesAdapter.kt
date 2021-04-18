@@ -2,6 +2,7 @@ package ungar.mvvm.birthdayapp.ui.wishes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -39,6 +40,7 @@ class WishesAdapter(private val listener: OnItemClickListener) :
         fun bind(wish: Wish) {
             binding.apply {
                 tvWish.text = wish.quote
+                labelUserGenerated.isVisible = wish.userGenerated
             }
         }
     }

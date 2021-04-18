@@ -9,7 +9,7 @@ import ungar.mvvm.birthdayapp.di.ApplicationScope
 import javax.inject.Inject
 import javax.inject.Provider
 
-@Database(entities = [Birthday::class, Note::class], version = 4)
+@Database(entities = [Birthday::class, Note::class, Wish::class], version = 1, exportSchema = false)
 abstract class BirthdayDatabase : RoomDatabase() {
 
     abstract fun birthdayDao(): BirthdayDao

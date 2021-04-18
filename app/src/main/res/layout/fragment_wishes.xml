@@ -120,4 +120,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wishesCard" />
 
+    <ProgressBar
+        android:id="@+id/progressBarWishes"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewWishes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewWishes"
+        app:layout_constraintTop_toBottomOf="@+id/wishesCard"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
+
 </androidx.constraintlayout.motion.widget.MotionLayout>

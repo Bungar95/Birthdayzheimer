@@ -2,6 +2,7 @@ package ungar.mvvm.birthdayapp.model
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 @Dao
 interface BirthdayDao {
@@ -42,4 +43,15 @@ interface BirthdayDao {
 
     @Delete
     suspend fun deleteNote(note: Note)
+
+    //Wishes
+
+    @Query("SELECT * FROM wish_table")
+    fun getAllWishes(): Flow<List<Wish>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertWishes(wishes: List<Wish>)
+
+    @Query("DELETE FROM wish_table")
+    suspend fun deleteAllWishes()
 }

@@ -3,6 +3,7 @@ package ungar.mvvm.birthdayapp.ui.birthdays
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.afollestad.date.dayOfMonth
+import com.afollestad.date.month
+import com.afollestad.date.year
 import com.afollestad.materialdialogs.LayoutMode
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.bottomsheets.BottomSheet
@@ -30,6 +34,8 @@ import kotlinx.coroutines.flow.first
 import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.databinding.FragmentBirthdaysBinding
 import ungar.mvvm.birthdayapp.model.Birthday
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 
@@ -150,11 +156,11 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays),
         fab_add_birthday.setOnClickListener {
 
             var nameValue = "error"
-            var dateValue: LocalDate = LocalDate.of(1970, 1, 1)
+            var dateValue: LocalDate = LocalDate.of(2000, 1, 1)
             var genderValue = 0
             var dateDialog: MaterialDialog? = null
             val endDate = Calendar.getInstance()
-            val currentDate = Calendar.getInstance()
+            val currentDate = viewModel.localDatetoCalendar(LocalDate.of(endDate.year, 1, 1))
 
             // Show a bottom sheet containing the form to insert a new event
             val dialog =
@@ -209,7 +215,6 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays),
                                     dateValue = LocalDate.of(year, month, day)
                                     // If ok is pressed, the last selected date is saved if the dialog is reopened
                                     currentDate.set(year, month - 1, day)
-                                    //birthdayDate.setText(currentDate.toString()) crashes
                                 }
                             }
 
@@ -218,6 +223,13 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays),
                     }
                 }
         }
+    }
+
+    private fun setSelectedDate(day: Int, month: Int, year: Int): String {
+        val c = Calendar.getInstance().set(year, month, day)
+        val birthdayDate = DateFormat.getDateInstance().format(c)
+        val sdf = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
+        return sdf.format(birthdayDate).toString()
     }
 
     private fun deleteBirthday(birthday: Birthday) {
@@ -238,6 +250,7 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays),
                 message(R.string.edit_birthday_description)
                 customView(R.layout.dialog_add_birthday) // no need for a new dialog
                 birthdayName.setText(nameValue)
+                birthdayDate.setText(dateValue.toString())
                 radioGroup_gender.check(genderValue) // serves to have the previously checked button checked again.
                 positiveButton(R.string.edit_birthday) {
                     if (birthdayName.text.isNullOrBlank()) {
@@ -284,11 +297,12 @@ class BirthdaysFragment : Fragment(R.layout.fragment_birthdays),
                                 val day = date.get(Calendar.DAY_OF_MONTH)
                                 dateValue = LocalDate.of(year, month, day)
                                 // If ok is pressed, the last selected date is saved if the dialog is reopened
-                                //birthdayDate.setText(currentDate.toString()) crashes
+
                             }
                         }
 
                         Handler(Looper.getMainLooper()).postDelayed({ dateDialog = null }, 750)
+                        birthdayDate.setText(dateValue.toString())
                     }
                 }
             }

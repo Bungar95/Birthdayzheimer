@@ -7,6 +7,6 @@ import ungar.mvvm.birthdayapp.model.Wish
 interface APIService {
 
     @GET("/.json")
-    suspend fun getQuotes(): Response<List<Wish>>
+    suspend fun getQuotes(): List<Wish>
 
 }
