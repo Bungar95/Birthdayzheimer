@@ -114,6 +114,7 @@
 
     <!-- Birthday Wish Relations -->
     <string-array name="choice_relations">
+        <item>Anyone</item>
         <item>Mother</item>
         <item>Father</item>
         <item>Brother</item>

@@ -116,6 +116,7 @@
     <!-- Birthday Wish Relations -->
     <!-- json is only in english -->
     <string-array name="choice_relations">
+        <item>Anyone</item>
         <item>Mother</item>
         <item>Father</item>
         <item>Brother</item>

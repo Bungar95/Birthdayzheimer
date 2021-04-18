@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.first
 import ungar.mvvm.birthdayapp.R
 import ungar.mvvm.birthdayapp.databinding.FragmentWishesBinding
 import ungar.mvvm.birthdayapp.model.Wish
+import ungar.mvvm.birthdayapp.util.Resource
 
 @AndroidEntryPoint
 class WishesFragment : Fragment(R.layout.fragment_wishes), WishesAdapter.OnItemClickListener {
@@ -30,7 +32,6 @@ class WishesFragment : Fragment(R.layout.fragment_wishes), WishesAdapter.OnItemC
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentWishesBinding.inflate(inflater, container, false)
-        viewModel.getQuotes()
         return binding?.root
     }
 
@@ -54,11 +55,13 @@ class WishesFragment : Fragment(R.layout.fragment_wishes), WishesAdapter.OnItemC
 
     //On response, fill recyclerview
     private fun observeResponse() {
-        viewModel.myResponse.observe(viewLifecycleOwner) { response ->
-            if (response.isNotEmpty()) {
-                removeErrorPlaceholder()
-                wishAdapter.submitList(response)
-            } else restoreErrorPlaceholder()
+        viewModel.wishes.observe(viewLifecycleOwner) { result ->
+
+            wishAdapter.submitList(result.data)
+
+            progressBarWishes.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
+            noWishes.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
+            noWishes.text = result.error?.localizedMessage
         }
     }
 
